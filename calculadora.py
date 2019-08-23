@@ -15,11 +15,11 @@ class Application(tk.Frame):
         self.B2.grid(row=1, column=2)
         self.B3= tk.Button(self, text = "3", fg = "gray",command = self.numero_3)
         self.B3.grid(row=1, column=3)
-        self.Bporcentaje= tk.Button(self, text = "%", fg = "gray", command = self.numero_4)
-        self.Bporcentaje.grid(row=1, column=4)
-        self.Bb= tk.Button(self, text = "←", fg = "gray", command = self.numero_4)
+        self.Bdivision= tk.Button(self, text = "/", fg = "gray", command = self.division)
+        self.Bdivision.grid(row=1, column=4)
+        self.Bb= tk.Button(self, text = "←", fg = "gray", command = self.borrarAnterior)
         self.Bb.grid(row=1, column=5)
-        self.Bdel= tk.Button(self, text = "c", fg = "gray", command = self.numero_4)
+        self.Bdel= tk.Button(self, text = "c", fg = "gray", command = self.borrar)
         self.Bdel.grid(row=1, column=6)
         
         self.B4= tk.Button(self, text = "4", fg = "gray", command = self.numero_4)
@@ -28,8 +28,12 @@ class Application(tk.Frame):
         self.B5.grid(row=2, column=2)
         self.B6= tk.Button(self, text = "6", fg = "gray",command = self.numero_6)
         self.B6.grid(row=2, column=3)
-        self.Bx= tk.Button(self, text = "x", fg = "gray", command = self.numero_4)
-        self.Bx.grid(row=1, column=5)
+        self.Bx= tk.Button(self, text = "x", fg = "gray", command = self.multiplicacion)
+        self.Bx.grid(row=2, column=4)
+        self.Bx= tk.Button(self, text = "(", fg = "gray", command = self.parentesisA)
+        self.Bx.grid(row=2, column=5)
+        self.Bx= tk.Button(self, text = ")", fg = "gray", command = self.parentesisC)
+        self.Bx.grid(row=2, column=6)
 
         self.B7= tk.Button(self, text = "7", fg = "gray", command = self.numero_7)
         self.B7.grid(row=3, column=1)
@@ -37,6 +41,25 @@ class Application(tk.Frame):
         self.B8.grid(row=3, column=2)
         self.B9= tk.Button(self, text = "9", fg = "gray",command = self.numero_9)
         self.B9.grid(row=3, column=3) 
+        self.Bm= tk.Button(self, text = "-", fg = "gray",command = self.resta)
+        self.Bm.grid(row=3, column=4)
+        self.Bex= tk.Button(self, text = "x²", fg = "gray",command = self.cuadrado)
+        self.Bex.grid(row=3, column=5) 
+        self.Bra= tk.Button(self, text = "√x", fg = "gray",command = self.raiz)
+        self.Bra.grid(row=3, column=6)
+
+        self.B0= tk.Button(self, text = "0", fg = "gray",command = self.numero_0)
+        self.B0.grid(row=4, column=1)
+        self.Bp= tk.Button(self, text = ".", fg = "gray",command = self.punto)
+        self.Bp.grid(row=4, column=2)
+        self.Bporcentaje= tk.Button(self, text = "%", fg = "gray", command = self.procentaje)
+        self.Bporcentaje.grid(row=4, column=3)
+        self.BM= tk.Button(self, text = "+", fg = "gray", command = self.suma)
+        self.BM.grid(row=4, column=4)
+        self.Be= tk.Button(self, text = "=", fg = "gray", command = self.igual)
+        self.Be.grid(row=4, column=5, columnspan = 2)
+
+
         self.entrythingy = tk.Entry()
         self.entrythingy.pack()
         self.contents = tk.StringVar()
@@ -70,7 +93,47 @@ class Application(tk.Frame):
     def numero_9(self):
         print("Número 9")
         self.contents.set(self.contents.get()+str(9))
-    
+    def numero_0(self):
+        print("Número 0")
+        self.contents.set(self.contents.get()+str(0))
+    def suma(self):
+        print("+")
+        self.contents.set(self.contents.get()+ "+")
+    def resta(self):
+        print("-")
+        self.contents.set(self.contents.get()+ "-")
+    def multiplicacion(self):
+        print("x")
+        self.contents.set(self.contents.get()+"x")
+    def division(self):
+        print("/")
+        self.contents.set(self.contents.get()+"/")
+    def borrar(self):
+        print("BORAR")
+        self.contents.set("")
+    def borrarAnterior(self):
+        print("Borrar anterior")
+    def procentaje(self):
+        print("porcentaje")
+        self.contents.set(self.contents.get()+"%")
+    def punto(self):
+        print("punto")
+        self.contents.set(self.contents.get()+".")
+    def parentesisA(self):
+        print("(")
+        self.contents.set(self.contents.get()+"(")
+    def parentesisC(self):
+        print(")")
+        self.contents.set(self.contents.get()+")")
+    def raiz(self):
+        print("Raiz")
+        self.contents.set(self.contents.get()+"√")
+    def cuadrado(self):
+        print("Cuadrado")
+        self.contents.set(self.contents.get()+"²")
+    def igual(self):
+        print("Igual")
+        self.contents.set(self.contents.get()+"=")
 
 root = tk.Tk()
 root.title("CALCULADORA")
