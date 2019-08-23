@@ -15,6 +15,13 @@ class Application(tk.Frame):
         self.B2.grid(row=1, column=2)
         self.B3= tk.Button(self, text = "3", fg = "gray",command = self.numero_3)
         self.B3.grid(row=1, column=3)
+        self.Bporcentaje= tk.Button(self, text = "%", fg = "gray", command = self.numero_4)
+        self.Bporcentaje.grid(row=1, column=4)
+        self.Bporcentaje= tk.Button(self, text = "←", fg = "gray", command = self.numero_4)
+        self.Bporcentaje.grid(row=1, column=5)
+        self.Bporcentaje= tk.Button(self, text = "c", fg = "gray", command = self.numero_4)
+        self.Bporcentaje.grid(row=1, column=6)
+        
         self.B4= tk.Button(self, text = "4", fg = "gray", command = self.numero_4)
         self.B4.grid(row=2, column=1)
         self.B5= tk.Button(self, text = "5", fg = "gray", command = self.numero_5)
@@ -61,8 +68,6 @@ class Application(tk.Frame):
         print("Número 9")
         self.contents.set(self.contents.get()+str(9))
     
-    def say_hi(self):
-        print("hi there, everyone!")
 
 root = tk.Tk()
 root.title("CALCULADORA")
