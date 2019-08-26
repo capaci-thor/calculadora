@@ -1,6 +1,16 @@
 import tkinter as tk
-
+from math import sqrt
 class Application(tk.Frame):
+    numeroUno = None
+    numeroDos = None
+    sumaEstado = False
+    restaEstado = False
+    multiplicacionEstado = False
+    divisionEstado = False
+    cuadradoEstado = False
+    raizEstado = False
+    #self.array = []
+    #self.sumaEstado = False
     
     def __init__(self, master=None):
         super().__init__(master)
@@ -97,18 +107,32 @@ class Application(tk.Frame):
         print("Número 0")
         self.contents.set(self.contents.get()+str(0))
     def suma(self):
+        self.sumaEstado = True
+        self.numeroUno = float(self.contents.get())
         print("+")
         self.contents.set(self.contents.get()+ "+")
     def resta(self):
+        self.restaEstado = True
+        self.numeroUno = float(self.contents.get())
         print("-")
         self.contents.set(self.contents.get()+ "-")
     def multiplicacion(self):
         print("x")
+        self.multiplicacionEstado = True
+        self.numeroUno = float(self.contents.get())
         self.contents.set(self.contents.get()+"x")
     def division(self):
         print("/")
+        self.divisionEstado = True
+        self.numeroUno = float(self.contents.get())
         self.contents.set(self.contents.get()+"/")
     def borrar(self):
+        self.sumaEstado = False
+        self.restaEstado = False
+        self.multiplicacionEstado = False
+        self.divisionEstado = False
+        self.cuadradoEstado = False
+        self.raiz = False
         print("BORAR")
         self.contents.set("")
     def borrarAnterior(self):
@@ -126,14 +150,53 @@ class Application(tk.Frame):
         print(")")
         self.contents.set(self.contents.get()+")")
     def raiz(self):
+        self.raizEstado = True
+        
         print("Raiz")
         self.contents.set(self.contents.get()+"√")
     def cuadrado(self):
+        self.cuadradoEstado = True
+        self.numeroUno = float(self.contents.get())
         print("Cuadrado")
         self.contents.set(self.contents.get()+"²")
     def igual(self):
+        if(self.sumaEstado):
+            try:
+                self.numeroDos = float(self.contents.get()[self.contents.get().find("+"):])
+                self.contents.set(self.contents.get()+"=" + str(self.numeroDos + self.numeroUno))
+            except ValueError:
+                self.contents.set("syntax error")
+        elif(self.restaEstado):
+            try:
+                self.numeroDos = float(self.contents.get()[self.contents.get().find("-")+1:])
+                self.contents.set(self.contents.get()+"=" + str(self.numeroUno - self.numeroDos))
+            except ValueError:
+                self.contents.set("syntax error")
+        elif(self.multiplicacionEstado):
+            try:
+                self.numeroDos = float(self.contents.get()[self.contents.get().find("x")+1:])
+                self.contents.set(self.contents.get()+"=" + str(self.numeroUno*self.numeroDos))
+            except ValueError:
+                self.contents.set("syntax error")
+        elif(self.divisionEstado):
+            try:
+                self.numeroDos = float(self.contents.get()[self.contents.get().find("/")+1:])
+                self.contents.set(self.contents.get()+"=" + str(self.numeroUno/self.numeroDos))
+            except ValueError:
+                self.contents.set("syntax error")
+        elif(self.cuadradoEstado):
+            try:
+                self.contents.set(self.contents.get()+"=" + str(self.numeroUno**2))
+            except ValueError:
+                self.contents.set("syntax error")
+        elif(self.raizEstado):
+            try:
+                self.numeroUno = float(self.contents.get()[1:])
+                self.contents.set(self.contents.get()+"=" + str(sqrt(self.numeroUno)))
+            except ValueError:
+                self.contents.set("syntax error")
         print("Igual")
-        self.contents.set(self.contents.get()+"=")
+        #print(self.contents.get())
 
 root = tk.Tk()
 root.title("CALCULADORA")
