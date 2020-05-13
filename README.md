@@ -4,7 +4,7 @@ Calculadora hecha con la biblioteca [Tkinter](https://docs.python.org/2/library/
 
 # Instalación [Tkinter](https://docs.python.org/2/library/tkinter.html)
 
-Para la instalación rápida con el gestor de paqueter de python [pip](https://pip.pypa.io/en/stable/)
+Para la instalación rápida con el gestor de paquetes de python [pip](https://pip.pypa.io/en/stable/)
 
 
 ```bash 
