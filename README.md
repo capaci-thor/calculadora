@@ -6,5 +6,6 @@ Calculadora hecha con la biblioteca [Tkinter](https://docs.python.org/2/library/
 
 Para la instalación rápida con el gestor de paqueter de python [pip](https://pip.pypa.io/en/stable/)
 
-'''bash 
+
+```bash 
 pip install python-tk
