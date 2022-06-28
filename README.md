@@ -1,10 +1,13 @@
-# calculadora
+# Calculator
 
-Calculadora hecha con la biblioteca [Tkinter](https://docs.python.org/2/library/tkinter.html) en python 3.x
+## Imagen 
+![Calculator](https://github.com/capaci-thor/calculadora/blob/master/images/calculadora.png)
 
-# Instalación [Tkinter](https://docs.python.org/2/library/tkinter.html)
+Calculator made with the library [Tkinter](https://docs.python.org/2/library/tkinter.html) in python 3.x
 
-Para la instalación rápida con el gestor de paquetes de python [pip](https://pip.pypa.io/en/stable/)
+# installation [Tkinter](https://docs.python.org/2/library/tkinter.html)
+
+For quick installation with python package manager [pip](https://pip.pypa.io/en/stable/)
 
 
 ```bash 
